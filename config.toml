@@ -1,4 +1,4 @@
 baseURL = "https://tsako2235.github.io/blog"
-languageCode = "en-us"
-title = "My New Hugo Site"
+languageCode = "ja"
+title = "おっさんの住処"
 theme = "charaka"
