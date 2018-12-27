@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>https://tsako2235.github.io/blog/about/</loc>
+    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tsako2235.github.io/blog/categories/</loc>
     <priority>0</priority>
   </url>
@@ -24,13 +29,13 @@
   </url>
   
   <url>
-    <loc>https://tsako2235.github.io/blog/categories/hugo/</loc>
+    <loc>https://tsako2235.github.io/blog/tags/hugo/</loc>
     <lastmod>2018-12-27T17:21:01+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://tsako2235.github.io/blog/tags/hugo/</loc>
+    <loc>https://tsako2235.github.io/blog/categories/hugo/</loc>
     <lastmod>2018-12-27T17:21:01+09:00</lastmod>
     <priority>0</priority>
   </url>
