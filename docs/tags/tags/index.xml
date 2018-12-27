@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on ぺけぺけ</title>
+    <link>https://tsako2235.github.io/blog/tags/</link>
+    <description>Recent content in Tags on ぺけぺけ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/tsako2235&#34;&gt;tsako2235&lt;/a&gt; 2018</copyright>
+    <lastBuildDate>Thu, 27 Dec 2018 17:21:01 +0900</lastBuildDate>
+    
+	<atom:link href="https://tsako2235.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Github</title>
+      <link>https://tsako2235.github.io/blog/tags/github/</link>
+      <pubDate>Thu, 27 Dec 2018 17:21:01 +0900</pubDate>
+      
+      <guid>https://tsako2235.github.io/blog/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://tsako2235.github.io/blog/tags/hugo/</link>
+      <pubDate>Thu, 27 Dec 2018 17:21:01 +0900</pubDate>
+      
+      <guid>https://tsako2235.github.io/blog/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

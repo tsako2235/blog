@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ぺけぺけ</title>
-    <link>https://tsako2235.github.io/blog/</link>
-    <description>Recent content on ぺけぺけ</description>
+    <title>Github on ぺけぺけ</title>
+    <link>https://tsako2235.github.io/blog/tags/github/</link>
+    <description>Recent content in Github on ぺけぺけ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/tsako2235&#34;&gt;tsako2235&lt;/a&gt; 2018</copyright>
     <lastBuildDate>Thu, 27 Dec 2018 17:21:01 +0900</lastBuildDate>
     
-	<atom:link href="https://tsako2235.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tsako2235.github.io/blog/tags/github/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -28,15 +28,6 @@ TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master) $ git version 
 mkdir /c/project/portfolio  3. VSCodeとGitHubの連携 Ctrl+Shift+Gにて、ソース管理を開いておく Ctrl+Shift+@にて、ターミナルを開き、Pullしたいディレクトリに移動しておく
 git pull [リポジトリ] [ブランチ]
 TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master) $ git pull https://github.com/tsako2235/portfolio marktime remote: Enumerating objects: 3, done. remote: Counting objects: 100% (3/3), done. remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 Unpacking objects: 100% (3/3), done.</description>
-    </item>
-    
-    <item>
-      <title>2018 12 25</title>
-      <link>https://tsako2235.github.io/blog/posts/2018-12-25/</link>
-      <pubDate>Tue, 25 Dec 2018 23:48:31 +0900</pubDate>
-      
-      <guid>https://tsako2235.github.io/blog/posts/2018-12-25/</guid>
-      <description>はじめの一歩 ここはわたしのブログ Hugo + VSCode + GitHub Pagesで作った私の静的サイトなの</description>
     </item>
     
   </channel>
