@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Charaka</title>
-    <link>https://example.com/blog/</link>
+    <link>https://tsako2235.github.io/blog/</link>
     <description>Recent content on Charaka</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/natarajmb&#34;&gt;Nataraj Basappa&lt;/a&gt; 2018</copyright>
+    <language>ja</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/tsako2235&#34;&gt;tsako2235&lt;/a&gt; 2018</copyright>
     <lastBuildDate>Tue, 25 Dec 2018 23:48:31 +0900</lastBuildDate>
     
-	<atom:link href="https://example.com/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tsako2235.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>2018 12 25</title>
-      <link>https://example.com/blog/posts/2018-12-25/</link>
+      <link>https://tsako2235.github.io/blog/posts/2018-12-25/</link>
       <pubDate>Tue, 25 Dec 2018 23:48:31 +0900</pubDate>
       
-      <guid>https://example.com/blog/posts/2018-12-25/</guid>
+      <guid>https://tsako2235.github.io/blog/posts/2018-12-25/</guid>
       <description>はじめの一歩 ここはわたしのブログ Hugo + VSCode + GitHub Pagesで作った私の静的サイトなの</description>
     </item>
     
