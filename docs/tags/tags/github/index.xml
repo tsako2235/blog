@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on ぺけぺけ</title>
+    <link>https://tsako2235.github.io/blog/tags/github/</link>
+    <description>Recent content in Github on ぺけぺけ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/tsako2235&#34;&gt;tsako2235&lt;/a&gt; 2018</copyright>
+    <lastBuildDate>Thu, 27 Dec 2018 17:21:01 +0900</lastBuildDate>
+    
+	<atom:link href="https://tsako2235.github.io/blog/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2018 12 27</title>
+      <link>https://tsako2235.github.io/blog/posts/2018-12-27/</link>
+      <pubDate>Thu, 27 Dec 2018 17:21:01 +0900</pubDate>
+      
+      <guid>https://tsako2235.github.io/blog/posts/2018-12-27/</guid>
+      <description>Windows環境で開発環境を整えて、VSCode + Hugo + GitHubでポートフォリオを作成する話 1. VSCodのインストール インストール後、VSCodeでtextを開く
+2. gitインストール インストール ここを参考にインストール https://qiita.com/shinsumicco/items/a1c799640131ae33c792
+Ctrl+Shift+@でターミナルを開き、Gitのパスが通り、インストールされているか確認
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master) $ git version git version 2.19.1.windows.1  ブランチ作成 https://guides.github.com/activities/hello-world/ とりまmasterへPullまで確認 portfolioのリポジトリと、master以外のブランチを作成しておく
+作成したリポジトリはこちら https://github.com/tsako2235/portfolio
+ブランチはワンクッション置くという意味で、 仮にmarktime（調子を取る）とした、英語は壊滅的な評価しかもっていないので真似しないように。
+プロジェクトディレクトリを作成
+mkdir /c/project/portfolio  3. VSCodeとGitHubの連携 Ctrl+Shift+Gにて、ソース管理を開いておく Ctrl+Shift+@にて、ターミナルを開き、Pullしたいディレクトリに移動しておく
+git pull [リポジトリ] [ブランチ]
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master) $ git pull https://github.com/tsako2235/portfolio marktime remote: Enumerating objects: 3, done. remote: Counting objects: 100% (3/3), done. remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 Unpacking objects: 100% (3/3), done.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>2018 12 27 | ぺけぺけ</title>
+
+<link rel="stylesheet" href="https://tsako2235.github.io/blog/css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://tsako2235.github.io/blog/js/highlight.js"></script>
+
+
+
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-minima.css" />
+<script type="text/javascript" src="https://tsako2235.github.io/blog/js/jssocials.js"></script>
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://tsako2235.github.io/blog"><h1 class="title is-3">ぺけぺけ</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://tsako2235.github.io/blog/about">
+                  <span class="icon">
+                    <i class="fas fa-info"></i>
+                  </span>
+                </a>
+              
+                <a href="https://github.com/tsako2235/">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/c_takosa">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">December 27, 2018</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">2018 12 27</h1>
+  <div class="content">
+    
+
+<h1 id="windows環境で開発環境を整えて-vscode-hugo-githubでポートフォリオを作成する話">Windows環境で開発環境を整えて、VSCode + Hugo + GitHubでポートフォリオを作成する話</h1>
+
+<h2 id="1-vscodのインストール">1. VSCodのインストール</h2>
+
+<p>インストール後、VSCodeでtextを開く</p>
+
+<h2 id="2-gitインストール">2. gitインストール</h2>
+
+<h2 id="インストール">インストール</h2>
+
+<p>ここを参考にインストール
+<a href="https://qiita.com/shinsumicco/items/a1c799640131ae33c792">https://qiita.com/shinsumicco/items/a1c799640131ae33c792</a></p>
+
+<p>Ctrl+Shift+@でターミナルを開き、Gitのパスが通り、インストールされているか確認</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master)
+$ git version
+git version 2.19.1.windows.1
+</code></pre>
+
+<h3 id="ブランチ作成">ブランチ作成</h3>
+
+<p><a href="https://guides.github.com/activities/hello-world/">https://guides.github.com/activities/hello-world/</a>
+とりまmasterへPullまで確認
+portfolioのリポジトリと、master以外のブランチを作成しておく</p>
+
+<p>作成したリポジトリはこちら
+<a href="https://github.com/tsako2235/portfolio">https://github.com/tsako2235/portfolio</a></p>
+
+<p>ブランチはワンクッション置くという意味で、
+仮にmarktime（調子を取る）とした、英語は壊滅的な評価しかもっていないので真似しないように。</p>
+
+<p>プロジェクトディレクトリを作成</p>
+
+<pre><code>mkdir /c/project/portfolio
+</code></pre>
+
+<h2 id="3-vscodeとgithubの連携">3. VSCodeとGitHubの連携</h2>
+
+<p>Ctrl+Shift+Gにて、ソース管理を開いておく
+Ctrl+Shift+@にて、ターミナルを開き、Pullしたいディレクトリに移動しておく</p>
+
+<p>git pull [リポジトリ] [ブランチ]</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master)
+$ git pull https://github.com/tsako2235/portfolio marktime
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/tsako2235/portfolio
+* branch            marktime   -&gt; FETCH_HEAD
+</code></pre>
+
+<p>あかん、何いってのかわからんｗ
+だが、lsの結果きちんとREADMEのマークダウンファイルが落とせてるので
+大丈夫なんだろう…</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master)
+$ ls -l
+total 3
+-rw-r--r-- 1 TAISHI-SAKO 197121 1899 Dec  5 18:38 portfolio.txt
+-rw-r--r-- 1 TAISHI-SAKO 197121   22 Dec  5 18:37 README.md
+</code></pre>
+
+<p>しかし、ユーザとパスワードが要求されない、gitconfigをみてみよう
+うん、こういうのはたいていインストールディレクトリにconfigがないときは
+etcにあるものだと思ったけど、それっぽいファイルがない</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/Program Files/Git/etc
+$ ls
+bash.bash_logout  docx2txt.config  inputrc              mtab      nsswitch.conf         pki        protocols  tigrc
+bash.bashrc       fstab            install-options.txt  nanorc    package-versions.txt  profile    services   vimrc
+DIR_COLORS        hosts            msystem              networks  pkcs11                profile.d  ssh
+</code></pre>
+
+<p>ここでCtrl+@でターミナルに移動できると知る。うむ</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/Program Files/Git/dev
+$ ls
+fd  mqueue  shm  stderr  stdin  stdout
+</code></pre>
+
+<p>devにもない、ふぅん、ユーザプロファイル系かな、そういうの、嫌いだな（凛ちゃん感）
+結局コマンドで調べるいいんだよ、コマンドで、うん？ない
+なるほどな、公開されているpublicなGitHubでは参照系については、ユーザもパスも要らないんだな
+多分、ここではこう仮定しておこう、pushする時わかるはずだ、いずれわかる、いずれな</p>
+
+<pre><code>$ git config -l --global
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+filter.lfs.clean=git-lfs clean -- %f
+user.name=tsako
+user.email=c.takosa.40@gmail.com
+core.editor='C:\Users\TAISHI-SAKO\AppData\Local\Programs\Microsoft VS Code\Code.exe' --wait
+</code></pre>
+
+<p>やばいぞ、VSCodeめちゃくちゃ便利やん、Microsoftやるやん、
+VSSとか仕事で使ってた時は何死んでんねん、復旧くっそめんどい死ねやこら、とか
+C++からExcel弄るツール作ってた時、Excel Objectにバグがあって問い合わせたら
+Microsoft日本担当「本国に問い合わせてみます^^」
+本国「お前のような小規模なQAに対応している暇はない」とか塩対応されたとか
+あったからMicorosoftは糞って思ってたけど…</p>
+
+<p>ついでに、portfolioを別名として追加しておく</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master)
+$ git remote add portfolio https://github.com/tsako2235/portfolio
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master)
+$ git remote -v
+portfolio       https://github.com/tsako2235/portfolio (fetch)
+portfolio       https://github.com/tsako2235/portfolio (push)
+</code></pre>
+
+<p>試しにこの、portfolio.txtをpushしてみる。
+ちょっと待て、masterに登録されたぞ
+Ctrl+Shift+Gのその他の操作でステージング後、
+コミット後、その他の操作にて、「プッシュ先&hellip;」押下後
+登録したremoteリポジトリを選択したところ…masterに飛んでいってしまった。</p>
+
+<p>fetchを確認し</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master)
+$ git fetch portfolio -v
+From https://github.com/tsako2235/portfolio
+= [up to date]      master     -&gt; portfolio/master
+= [up to date]      marktime   -&gt; portfolio/marktime
+</code></pre>
+
+<p>作業ブランチを変更することに、さぁこれでリモート先も変わったかな</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master)
+$ git checkout marktime
+Switched to a new branch 'marktime'
+Branch 'marktime' set up to track remote branch 'marktime' from 'portfolio'.
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+</code></pre>
+
+<p>よしよし、うまくいったぞ、次はコマンドからpushしてみる</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git push portfolio
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 340 bytes | 340.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/tsako2235/portfolio
+  62ee769..6bc5685  marktime -&gt; marktime
+</code></pre>
+
+<p>完璧だ、あとはmasterへのマージpushか…
+GitHubのWebでなくともクライアントから勿論できるんだよな？
+うむ、どちらかというとmaster側でmarktimeブランチからマージというイメージだな
+Web上ではできた</p>
+
+<p>are?</p>
+
+<p>test</p>
+
+<p>commitして</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git commit portfolio.md portfolio.md
+hint: Waiting for your editor to close the file...
+[marktime 6a547ca] committed
+1 file changed, 10 insertions(+)
+</code></pre>
+
+<p>pushして</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git push portfolio marktime
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 401 bytes | 133.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/tsako2235/portfolio
+  6a4e280..6a547ca  marktime -&gt; marktime
+</code></pre>
+
+<p>ブランチ確認、うんmarktimeだな</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git branch -a
+* marktime
+  master
+  remotes/portfolio/marktime
+  remotes/portfolio/master
+</code></pre>
+
+<p>ブランチ変更</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git checkout master
+Switched to branch 'master'
+Your branch is behind 'portfolio/master' by 5 commits, and can be fast-forwarded.
+  (use &quot;git pull&quot; to update your local branch)
+</code></pre>
+
+<p>マージ…何か違和感が</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master)
+$ git merge
+Updating 7091341..4314901
+Fast-forward
+portfolio.md  | 143 ++++++++++++++++++++++++++++++++
+portfolio.txt | 257 +++++++++++++++++++++++++++++++++-------------------------
+2 files changed, 288 insertions(+), 112 deletions(-)
+create mode 100644 portfolio.md
+</code></pre>
+
+<p>んんんん？ちょっとまて、君どことマージしたの！？
+もちろんremoteのGitHubに変更はない
+あ、あれれ？</p>
+
+<p>もっかい・・marktimeにブランチ変更して</p>
+
+<pre><code>AISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master)
+$ git checkout marktime
+Switched to branch 'marktime'
+Your branch is up to date with 'portfolio/marktime'.
+</code></pre>
+
+<p>ファイルをコミットして</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git commit portfolio.md
+hint: Waiting for your editor to close the file...
+[marktime c1a2ad9] a
+1 file changed, 28 insertions(+), 1 deletion(-)
+</code></pre>
+
+<p>プッシュして</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git push portfolio marktime
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 808 bytes | 269.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/tsako2235/portfolio
+  04ab5b3..c1a2ad9  marktime -&gt; marktime
+</code></pre>
+
+<p>ブランチ変更して</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'portfolio/master'.
+</code></pre>
+
+<p>マージ・・ああ、きちんとブランチ指定ができてなかったからか
+きちんとマージできた</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master)
+$ git merge marktime
+Updating 4314901..c1a2ad9
+Fast-forward
+portfolio.md | 67 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
+1 file changed, 65 insertions(+), 2 deletions(-)
+</code></pre>
+
+<p>何か違和感あるな、リモートのmarktimeブランチからリモートのmasterブランチへ
+マージしたいんだから、ローカルブランチを変更する点に違和感がある。
+直接リモートのmasterでマージできるべきなんじゃないか？
+少なくともGitHubのWeb上ではそういう操作だ</p>
+
+<p>とりあえず、ローカルブランチをmaster、marktimeから
+portfolio.master portfolio.marktimeに</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git branch -m master portfolio.master
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git branch -m marktime portfolio.marktime
+
+$ git branch -a
+  marktime
+* master
+  remotes/portfolio/marktime
+  remotes/portfolio/master
+  remotes/portfolio/portfolio.marktime
+</code></pre>
+
+<p>んんんんん？
+なるほど、安易にリネームしてはいけないのか…しかしローカルでmasterは…</p>
+
+<p>と、とりあえず、marktimeを戻す。そして紐づけ情報を確認</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git branch -vv
+* marktime         cbda04a [portfolio/marktime] ok
+  portfolio.master c5197e5 [portfolio/master: ahead 1] a-
+</code></pre>
+
+<p>ま、masterも戻そう。</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git branch -vv
+* marktime cbda04a [portfolio/marktime] ok
+  master   c5197e5 [portfolio/master: ahead 1] a-
+</code></pre>
+
+<p>んんんん、あそっかこのテキストを編集しているんだから名称どうとか以前に
+先にマージしなさいということね。</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master)
+$ git branch -vv
+  marktime 07c97c7 [portfolio/marktime] add message
+* master   b8b0991 [portfolio/master] add message master
+</code></pre>
+
+<p>よしよし、で、再度名称を変更、する前にこのテキストをきちんとコミットして
+それから名称を変更してみよう</p>
+
+<p>結論から言うと、まず、ローカルのマスターブランチは不要
+んで、誤ってくっそださい、portfolio.masterやportfolio.marktimeとかいう
+GitHub上のブランチは削除</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master)
+$ git branch -a
+  marktime
+* master
+  remotes/portfolio/marktime
+  remotes/portfolio/master
+  remotes/portfolio/portfolio.marktime
+  remotes/portfolio/portfolio.master
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git branch -D master
+Deleted branch master (was aef9bbe).
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git branch -a
+* marktime
+  remotes/portfolio/marktime
+  remotes/portfolio/master
+  remotes/portfolio/portfolio.marktime
+  remotes/portfolio/portfolio.master
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git branch -vv
+* marktime c8f9fa4 [portfolio/marktime] add message
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git push portfolio :portfolio.marktime
+To https://github.com/tsako2235/portfolio
+- [deleted]         portfolio.marktime
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git branch -a
+* marktime
+  remotes/portfolio/marktime
+  remotes/portfolio/master
+  remotes/portfolio/portfolio.master
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git push portfolio :portfolio.master
+To https://github.com/tsako2235/portfolio
+- [deleted]         portfolio.master
+</code></pre>
+
+<p>あと、個人的に慣れないうちはコマンド省略しない、これが要点だとわかった。
+プッシュ自にリポジトリ名とローカルブランチ名を省略しない、これが重要だ
+「git push プッシュ先リポジトリ ローカルのブランチ名:リモートのブランチ名」</p>
+
+<h2 id="4-vscodeとhugo">4. VSCodeとHugo</h2>
+
+<h3 id="とりあえず動かしてみる">とりあえず動かしてみる</h3>
+
+<p>さて、まずはHugoのWin版クライアントのダウンロードだ<br />
+<a href="https://github.com/gohugoio/hugo/releases">https://github.com/gohugoio/hugo/releases</a><br />
+hugo_0.52_Windows-64bit.zip 7.4 MB</p>
+
+<p>解凍して、パス通して…</p>
+
+<p>ぐぐぐ、そんなことよりターミナルを大きくしたい。Ctrl+@押下した時に<br />
+ターミナルをフォーカスした時ちょびっとパネルが上に大きくなるようにしたい<br />
+Toggle Maximized Panelで解決したわ</p>
+
+<p>ターミナル開いたままエディタに戻るのどうやんねんCtrl+@じゃ消えるやん</p>
+
+<p>気を取り直してっと以下サイトを参考に進めてみる<br />
+<a href="https://qiita.com/satzz/items/e24bd703fc04fb45f7ef">https://qiita.com/satzz/items/e24bd703fc04fb45f7ef</a><br />
+まずサイトを作るそうだ</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ hugo new site test
+Congratulations! Your new Hugo site is created in C:\project\portfolio\test.
+
+Just a few more steps and you're ready to go:
+
+1. Download a theme into the same-named folder.
+  Choose a theme from https://themes.gohugo.io/, or
+  create your own with the &quot;hugo new theme &lt;THEMENAME&gt;&quot; command.
+2. Perhaps you want to add some content. You can add single files
+  with &quot;hugo new &lt;SECTIONNAME&gt;\&lt;FILENAME&gt;.&lt;FORMAT&gt;&quot;.
+3. Start the built-in live server via &quot;hugo server&quot;.
+
+Visit https://gohugo.io/ for quickstart guide and full documentation.
+</code></pre>
+
+<p>で、公開</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ hugo server
+Error: Unable to locate Config file. Perhaps you need to create a new site.
+      Run `hugo help new` for details.
+</code></pre>
+
+<p>だめやん、そうかnewしたあとローカルサーバのディレクトリに移動してないからか？</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ cd test
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test (marktime)
+$ hugo server
+Building sites … WARN 2018/12/16 17:30:09 Found no layout for &quot;taxonomyTerm&quot;, language &quot;en&quot;, output format &quot;HTML&quot;: create a templa
+te below /layouts with one of these filenames: categories/terms.en.html.html, categories/list.en.html.html, categories/terms.html.html, categories/list.html.html, categories/terms.en.html, categories/list.en.html, categories/terms.html, categories/list.html, taxonomy/terms.en.html.html, taxonomy/list.en.html.html, taxonomy/terms.html.html, taxonomy/list.html.html, taxonomy/terms.en.html, taxonomy/list.en.html, taxonomy/terms.html, taxonomy/list.html, _default/terms.en.html.html, _default/list.en.html.html, _default/terms.html.html, _default/list.html.html, _default/terms.en.html, _default/list.en.html, _default/terms.html, _default/list.html
+WARN 2018/12/16 17:30:09 Found no layout for &quot;home&quot;, language &quot;en&quot;, output format &quot;HTML&quot;: create a template below /layouts with one of these filenames: index.en.html.html, home.en.html.html, list.en.html.html, index.html.html, home.html.html, list.html.html, index.en.html, home.en.html, list.en.html, index.html, home.html, list.html, _default/index.en.html.html, _default/home.en.html.html,
+_default/list.en.html.html, _default/index.html.html, _default/home.html.html, _default/list.html.html, _default/index.en.html, _default/home.en.html, _default/list.en.html, _default/index.html, _default/home.html, _default/list.html
+WARN 2018/12/16 17:30:09 Found no layout for &quot;taxonomyTerm&quot;, language &quot;en&quot;, output format &quot;HTML&quot;: create a template below /layouts
+with one of these filenames: tags/terms.en.html.html, tags/list.en.html.html, tags/terms.html.html, tags/list.html.html, tags/terms.en.html, tags/list.en.html, tags/terms.html, tags/list.html, taxonomy/terms.en.html.html, taxonomy/list.en.html.html, taxonomy/terms.html.html, taxonomy/list.html.html, taxonomy/terms.en.html, taxonomy/list.en.html, taxonomy/terms.html, taxonomy/list.html, _default/terms.en.html.html, _default/list.en.html.html, _default/terms.html.html, _default/list.html.html, _default/terms.en.html, _default/list.en.html, _default/terms.html, _default/list.html
+
+                  | EN
++------------------+----+
+  Pages            |  3
+  Paginator pages  |  0
+  Non-page files   |  0
+  Static files     |  0
+  Processed images |  0
+  Aliases          |  0
+  Sitemaps         |  1
+  Cleaned          |  0
+
+Total in 29 ms
+Watching for changes in C:\project\portfolio\test\{content,data,layouts,static}
+Watching for config changes in C:\project\portfolio\test\config.toml
+Serving pages from memory
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop
+WARN 2018/12/16 17:30:18 Found no layout for &quot;home&quot;, language &quot;en&quot;, output format &quot;HTML&quot;: create a template below /layouts with one of these filenames: index.en.html.html, home.en.html.html, list.en.html.html, index.html.html, home.html.html, list.html.html, index.en.html, home.en.html, list.en.html, index.html, home.html, list.html, _default/index.en.html.html, _default/home.en.html.html,
+_default/list.en.html.html, _default/index.html.html, _default/home.html.html, _default/list.html.html, _default/index.en.html, _default/home.en.html, _default/list.en.html, _default/index.html, _default/home.html, _default/list.html
+</code></pre>
+
+<p>よしよし、起動と接続もOKだ
+次は、何々、テーマを入力とな？テンプレートみたいな？</p>
+
+<p>このチャラカというかいうのがよさそうだ、最終的には双葉の掲示板みたいにしたい
+過去に公開していたサイトもそんな感じだったのだ、背景乳白色（POI）、あの茶色文字、
+返信で緑文字、あれがいいんだ、目に優しいし<br />
+<a href="https://themes.gohugo.io/charaka-hugo-theme/">https://themes.gohugo.io/charaka-hugo-theme/</a></p>
+
+<p>はぁ、なるほどね、gitでcloneしてきたテーマを反映するわけね</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test (marktime)
+git clone https://github.com/natarajmb/charaka-hugo-theme.git ./themes/charaka
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test (marktime)
+$ code ./config.toml
+</code></pre>
+
+<p>テーマサイトを参考に設定して、サーバ再起動
+toml…toml…？そういうフォーマットもあるのか</p>
+
+<pre><code>baseurl = &quot;https://example.com&quot;
+languageCode = &quot;en&quot;
+～
+[[params.social]]
+  url = &quot;https://twitter.com/natarajmb&quot;
+  fa_icon = &quot;fab fa-twitter&quot;
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test (marktime)
+$ hugo server
+Error: &quot;C:\project\portfolio\test\config.toml:19:6&quot;: While parsing config: (19, 6): was expecting token =, but got &quot;_icon&quot; instead
+</code></pre>
+
+<p>んん？…何かテーマがきちんと参照できてないぽい？
+しゃーない、テーマサイトの説明通りやってみるか</p>
+
+<p><a href="https://themes.gohugo.io/charaka-hugo-theme/">https://themes.gohugo.io/charaka-hugo-theme/</a></p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test/themes (marktime)
+$ rm -fr ./charaka
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test/themes (marktime)
+$ git clone https://github.com/natarajmb/charaka-hugo-theme.git
+Cloning into 'charaka-hugo-theme'...
+remote: Enumerating objects: 211, done.
+Receiving objects:  74% (157/211), 1.56 MiB | 1.55 MiB/s   s   ed 0 (delta 0), pack-reused 211
+Receiving objects: 100% (211/211), 1.57 MiB | 1.54 MiB/s, done.
+Resolving deltas: 100% (95/95), done.
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test (marktime)
+$ hugo server
+Error: &quot;C:\project\portfolio\test\config.toml:19:6&quot;: While parsing config: (19, 6): was expecting token =, but got &quot;_icon&quot; instead
+</code></pre>
+
+<p>だめみたいですね
+ああ、「Take a look in the exampleSite folder.」て書いてあるやん</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test (marktime)
+$ cd themes/
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test/themes (marktime)
+$ ls
+charaka-hugo-theme
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test/themes (marktime)
+$ cd charaka-hugo-theme/
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test/themes/charaka-hugo-theme (master)
+$ ls
+archetypes  exampleSite  images  layouts  LICENSE.md  package.json  README.md  scss  static  theme.toml
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test/themes/charaka-hugo-theme (master)
+$ cd exampleSite/
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test/themes/charaka-hugo-theme/exampleSite (master)
+$ cp -r ./* ./../../../
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test/themes/charaka-hugo-theme/exampleSite (master)
+$ cd ..
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test/themes/charaka-hugo-theme (master)
+$ ls
+archetypes  exampleSite  images  layouts  LICENSE.md  package.json  README.md  scss  static  theme.toml
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test/themes/charaka-hugo-theme (master)
+$ cd ..
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test/themes (marktime)
+$ ls
+charaka-hugo-theme
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test/themes (marktime)
+$ cd ..
+</code></pre>
+
+<p>よし、上書きしたぞ</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio/test (marktime)
+$ hugo server
+Building sites …
+                  | EN
++------------------+----+
+  Pages            | 31
+  Paginator pages  |  0
+  Non-page files   |  0
+  Static files     |  4
+  Processed images |  0
+  Aliases          | 12
+  Sitemaps         |  1
+  Cleaned          |  0
+
+Total in 99 ms
+Watching for changes in C:\project\portfolio\test\{content,data,layouts,static,themes}
+Watching for config changes in C:\project\portfolio\test\config.toml
+Serving pages from memory
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop
+</code></pre>
+
+<p>おうけい、見れた<br />
+カスタムとか何かは次に回そう、とりあえず使えることを目的に<br />
+ていうか手探りでやるにしてもクイックスタートくらいは守ろう</p>
+
+<p><a href="https://gohugo.io/categories/getting-started">https://gohugo.io/categories/getting-started</a></p>
+
+<p>ということで作りなおし</p>
+
+<p>新規で作成して</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project
+$ hugo new site hugo
+Congratulations! Your new Hugo site is created in C:\project\hugo.
+
+Just a few more steps and you're ready to go:
+
+1. Download a theme into the same-named folder.
+Choose a theme from https://themes.gohugo.io/, or
+create your own with the &quot;hugo new theme &lt;THEMENAME&gt;&quot; command.
+2. Perhaps you want to add some content. You can add single files
+with &quot;hugo new &lt;SECTIONNAME&gt;\&lt;FILENAME&gt;.&lt;FORMAT&gt;&quot;.
+3. Start the built-in live server via &quot;hugo server&quot;.
+
+Visit https://gohugo.io/ for quickstart guide and full documentation.
+</code></pre>
+
+<p>テーマを落として</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/hugo/themes (master)
+$ git clone https://github.com/natarajmb/charaka-hugo-theme.git ./charaka
+Cloning into './charaka-hugo-theme'...
+remote: Enumerating objects: 211, done.
+remote: Total 211 (delta 0), reused 0 (delta 0), pack-reused 211 eceiving objects:  80% (169/211), 1.09 MiB | 724.00 KiB/s
+Receiving objects: 100% (211/211), 1.57 MiB | 832.00 KiB/s, done.
+Resolving deltas: 100% (95/95), done.
+</code></pre>
+
+<p>設定に参照するテーマを指定して</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/hugo
+$ echo 'theme = &quot;charaka&quot;' &gt;&gt; config.toml
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/hugo
+$ cat config.toml
+baseURL = &quot;http://example.org/&quot;
+languageCode = &quot;en-us&quot;
+title = &quot;My New Hugo Site&quot;
+theme = &quot;charaka&quot;
+</code></pre>
+
+<p>クイックスタート通りに新しい記事を作成して</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/hugo
+$ hugo new posts/my-first-post.md
+C:\project\hugo\content\posts\my-first-post.md created
+</code></pre>
+
+<p>サーバースタート</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/hugo
+$ hugo server -D
+Building sites …
+                | EN
++------------------+----+
+Pages            | 10
+Paginator pages  |  0
+Non-page files   |  0
+Static files     |  3
+Processed images |  0
+Aliases          |  4
+Sitemaps         |  1
+Cleaned          |  0
+
+Total in 96 ms
+Watching for changes in C:\project\hugo\{content,data,layouts,static,themes}
+Watching for config changes in C:\project\hugo\config.toml
+Serving pages from memory
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop
+</code></pre>
+
+<p>うむ、これだけだな、とりあえず次に進むか</p>
+
+<ol>
+<li>HugoとGitHub</li>
+</ol>
+
+<p>さて、HugoとGitHubについてだが…<br />
+まずは公開用のリポジトリを作成せねばいけないらしい、<br />
+作るか</p>
+
+<p>ブランチを作成して</p>
+
+<p><a href="https://github.com/tsako2235/blog">https://github.com/tsako2235/blog</a></p>
+
+<p>設定で、GitHub Pagesのmasterブランチになるように変更</p>
+
+<p>https://ユーザまたは組織名.github.io/リポジトリ名</p>
+
+<p><a href="https://tsako2235.github.io/blog">https://tsako2235.github.io/blog</a>
+よし、何か表示された、で<br />
+さっきつくったHugoのビルド済みファイルをPushしてやればいいのかな</p>
+
+<p>えーと、今現在のremoteは、以下2件のみだから</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$ git remote -v
+portfolio       https://github.com/tsako2235/portfolio (fetch)
+portfolio       https://github.com/tsako2235/portfolio (push)
+</code></pre>
+
+<p>あー、なるほど、今masterブランチしかないのか
+直接触りたくないので、えーと、これmarktimeと同じ名称でいいのかな</p>
+
+<pre><code>git pull origin pullしたいリモートブランチ名:ローカルブランチ名
+</code></pre>
+
+<p>さすがに同名はやばいと思ったのかリポジトリ名_ブランチ名とすることに</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog
+$ git init
+Initialized empty Git repository in C:/project/blog/.git/
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (master)
+$ git pull https://github.com/tsako2235/blog.git marktime:blog_marktime
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/tsako2235/blog
+* [new branch]      marktime   -&gt; blog_marktime
+</code></pre>
+
+<p>えーと、リポジトリ別名はblogでいいな</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (master)
+$ git remote add blog https://github.com/tsako2235/blog
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (master)
+$ git remote -v
+blog    https://github.com/tsako2235/blog (fetch)
+blog    https://github.com/tsako2235/blog (push)
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (master)
+$ git branch -a
+blog_marktime
+* master
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (master)
+$ git fetch blog -v
+From https://github.com/tsako2235/blog
+* [new branch]      marktime   -&gt; blog/marktime
+* [new branch]      master     -&gt; blog/master
+</code></pre>
+
+<p>はぁ、master先生また出来てる…<br />
+portfolioは、あとから消そう<br />
+で、ローカルルールとして、pullするときのブランチ名はリポジトリ名_ブランチ名としよう<br />
+絶対いつか混乱するしな
+あ、あれ？gitて他リポジトリに切り替えたい時どうすりゃいいんだ？</p>
+
+<p>ああ、ディレクトリ移動だけで大丈夫なんか
+とりま、ローカルのmasterを削除</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$     git branch -d master
+Deleted branch master (was 686be34).
+</code></pre>
+
+<p>うむ</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ git branch -a
+* blog_marktime
+remotes/blog/marktime
+remotes/blog/master
+</code></pre>
+
+<p>さて、さきほどビルドしたHugoのリソースをプッシュだぁ！<br />
+と、ちょっとまて、svnと一緒でテーマ落とした時とか.gitファイルあるぞ<br />
+そのままプッシュして本当に、大丈夫なのかにゃ？</p>
+
+<p>何か嫌な予感がするのでとりあえず削除しておこう</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/hugo
+$ find . -name .git | xargs rm -rf
+</code></pre>
+
+<p>おけ、あとpublicディレクトリだけでいいのか、公開するのは…<br />
+んんー全体をプッシュしてpublicディレクトリ配下のみを<br />
+公開したい…ルート変更できるかな？</p>
+
+<p>うそやろ？いったんmaster殺してmasterディレクトリにするの<br />
+そんなばかな、ぐ、ぐぬぬsettingsでルートをdocにできるが…
+Hugoから吐かれるフォルダは、publicなんだよなぁ…<br />
+windowsでシンボリックリンクみたいのできるんだっけか？
+ぐ、ぐぬうコマンドがわからん、VSCodeのターミナルbashだし
+普通のUnix系シンボリックコマンドでもうまく読み替えてくれるだろたぶん</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/hugopwd
+$ ln -s public docs
+</code></pre>
+
+<p>できた、さすがやな！！<br />
+よっしゃコピーしてプッシュや！</p>
+
+<p>あ、リンクが怒られた…コピーしてからシンボリックリンクにしようね</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ git add .
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ git commit
+hint: Waiting for your editor to close the file...
+[blog_marktime c5a18ff] 2018-12-25 16:35:00 tsako2235 add hugo files
+32 files changed, 1811 insertions(+)
+create mode 100644 archetypes/default.md
+create mode 100644 config.toml
+create mode 100644 content/posts/my-first-post.md
+create mode 100644 docs/404.html
+create mode 100644 docs/categories/index.html
+create mode 100644 docs/categories/index.xml
+create mode 100644 docs/categories/page/1/index.html
+create mode 100644 docs/css/styles.css
+create mode 100644 docs/index.html
+create mode 100644 docs/index.xml
+create mode 100644 docs/js/highlight.js
+create mode 100644 docs/js/jssocials.js
+create mode 100644 docs/page/1/index.html
+create mode 100644 docs/sitemap.xml
+create mode 100644 docs/tags/index.html
+create mode 100644 docs/tags/index.xml
+create mode 100644 docs/tags/page/1/index.html
+create mode 100644 public/404.html
+create mode 100644 public/categories/index.html
+create mode 100644 public/categories/index.xml
+create mode 100644 public/categories/page/1/index.html
+create mode 100644 public/css/styles.css
+create mode 100644 public/index.html
+create mode 100644 public/index.xml
+create mode 100644 public/js/highlight.js
+create mode 100644 public/js/jssocials.js
+create mode 100644 public/page/1/index.html
+create mode 100644 public/sitemap.xml
+create mode 100644 public/tags/index.html
+create mode 100644 public/tags/index.xml
+create mode 100644 public/tags/page/1/index.html
+create mode 160000 themes
+</code></pre>
+
+<p>よっしゃ、プッシュや</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ git push blog blog_marktime:marktime
+Enumerating objects: 34, done.
+Counting objects: 100% (34/34), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (23/23), done.
+Writing objects: 100% (33/33), 27.99 KiB | 1.40 MiB/s, done.
+Total 33 (delta 7), reused 0 (delta 0)
+remote: Resolving deltas: 100% (7/7), done.
+To https://github.com/tsako2235/blog
+686be34..c5a18ff  blog_marktime -&gt; marktime
+</code></pre>
+
+<p>よすよす</p>
+
+<p>masterへのpullリクエストを作成して、承認と
+で、改めてmasterブランチのセッティングからGitHub Pagesの設定で
+公開する対象をdocsに変更、と</p>
+
+<p>さぁ、みてみるぜよ…は？<br />
+何か、テーマ反映されていないんですが
+あ、ああ、そうだよね</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ cat config.toml
+baseURL = &quot;http://example.org/&quot;
+languageCode = &quot;en-us&quot;
+title = &quot;My New Hugo Site&quot;
+theme = &quot;charaka&quot;
+</code></pre>
+
+<p>よしよし</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ cat config.toml
+baseURL = &quot;https://tsako2235.github.io/blog/&quot;
+languageCode = &quot;en-us&quot;
+title = &quot;My New Hugo Site&quot;
+theme = &quot;charaka&quot;
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ git add .
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ git commit .
+hint: Waiting for your editor to close the file...
+[blog_marktime ec6c056] 2018-12-25 16:47:26 tsako2235 changes base url
+1 file changed, 1 insertion(+), 1 deletion(-)
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ git push blog blog_marktime:marktime
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 379 bytes | 379.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/tsako2235/blog
+c5a18ff..ec6c056  blog_marktime -&gt; marktime
+</code></pre>
+
+<p>今度はhugoコマンドを忘れるくそ</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ hugo
+Building sites …
+                | EN
++------------------+----+
+Pages            |  7
+Paginator pages  |  0
+Non-page files   |  0
+Static files     |  3
+Processed images |  0
+Aliases          |  3
+Sitemaps         |  1
+Cleaned          |  0
+
+Total in 47 ms
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ git add .
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ git commit .
+hint: Waiting for your editor to close the file...
+[blog_marktime 56bcaff] 2018-12-25 16:50:01 tsako2235 issue hugo commands
+11 files changed, 20 insertions(+), 20 deletions(-)
+
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ git push blog blog_marktime:marktime
+Enumerating objects: 41, done.
+Counting objects: 100% (41/41), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (22/22), 1.61 KiB | 411.00 KiB/s, done.
+Total 22 (delta 12), reused 0 (delta 0)
+remote: Resolving deltas: 100% (12/12), completed with 6 local objects.
+To https://github.com/tsako2235/blog
+ec6c056..56bcaff  blog_marktime -&gt; marktime
+</code></pre>
+
+<p>あれ、だめだな…
+publicは大丈夫だ</p>
+
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://tsako2235.github.io/blog//css/styles.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://use.fontawesome.com/releases/v5.2.0/css/all.css&quot;
+</code></pre>
+
+<p>は？docsは…シンボリックリンク死んでるやん、なんで？</p>
+
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;http://example.org//css/styles.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://use.fontawesome.com/releases/v5.2.0/css/all.css&quot;
+</code></pre>
+
+<p>つかシンボリックリンクコマンド、これコピーしてるだけじゃねｋ？
+ローカルもdocs配下更新されてない、というかリンクじゃなさそう。</p>
+
+<p>しゃーない、あとでhugoコマンド発行時にコピペするようにするか<br />
+とりあえずmasterまでの反映完了っと<br />
+よし、表示され…あれ？最初につくった記事、どこいっただ
+うーん、ない、contentsにはあるけど、なかったことになっているぽいー<br />
+baseurl変更したからか？試しにnew postして試してみよう</p>
+
+<p>ああ、draft: trueになってるからか</p>
+
+<pre><code>draft: true
+---
+</code></pre>
+
+<p>だめだぁ…んん？どうもテーマにより、参照するcontent配下のパスが違うような
+今回のcharakaをみてみると、スクリプトの内容的に<br />
+記事を配置するのは ./content/posts/xx.md<br />
+となるようだ、そうか</p>
+
+<p>よし、できた！</p>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+    <aside><div id="share"></div></aside>
+    <script type="text/javascript">
+        $("#share").jsSocials({
+            showLabel: false,
+            showCount: false,
+            shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
+        });
+    </script>
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/tsako2235">tsako2235</a> 2018</p>
+  </div>
+</section>
+
+
