@@ -16,7 +16,7 @@ googleAnalytics = ""
   style = "zenburn"
 
 [params.share]
-  enabled = "true"
+  enabled = "false"
 
 [[params.social]]
   url = "about"
