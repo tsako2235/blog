@@ -7,10 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/tsako2235&#34;&gt;tsako2235&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Thu, 27 Dec 2018 17:21:01 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 30 Dec 2018 15:26:18 +0900</lastBuildDate>
     
 	<atom:link href="https://tsako2235.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2018 12 30</title>
+      <link>https://tsako2235.github.io/blog/posts/2018-12-30/</link>
+      <pubDate>Sun, 30 Dec 2018 15:26:18 +0900</pubDate>
+      
+      <guid>https://tsako2235.github.io/blog/posts/2018-12-30/</guid>
+      <description> VSCode のターミナルuidの名前を変更する話 現在のターミナルのuid うわ、私の本名…丸見え、しょうがないね、アカウント作るとき、
+本名で作っちゃったものね、ちなみにこれはWin10のユーザ名を変更しても
+反映されない。
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime) $ id uid=197609(TAISHI-SAKO) gid=197121 groups=197121  とりあえずusermod あ、ない…＾＾
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime) $ usermod bash: usermod: command not found  とりあえず、今更ながら利用しているbashを確認
+Terminal › Integrated › Shell: Windows Windows でターミナルが使用するシェルのパス。シェルの構成について詳細を表示。 C:\Program Files\Git\bin\bash.exe  GitBash&amp;hellip;利用できるコマンド見てみると、確かにない う、ううん、とりあえず追加でnetplwizで名前を変更してみたけど
+おろ、再起動したら、VSCode上のターミナルは変わってくれた
+よしよし
+C:\Users\TAISHI-SAKO&amp;gt;set user USERDOMAIN=DESKTOP-LV0F0HG USERDOMAIN_ROAMINGPROFILE=DESKTOP-LV0F0HG USERNAME=tsako2235 USERPROFILE=C:\Users\TAISHI-SAKO tsako2235@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime) $  </description>
+    </item>
     
     <item>
       <title>2018 12 27</title>
