@@ -12,6 +12,8 @@ tsako2235
 
 クロスカブ乗り、艦これが好き、ときたま落書きもする
 
+ご連絡はtiwtterのダイレクトメッセージとかで頼みます
+
 # 技術
 
 [OS]  
@@ -40,7 +42,7 @@ PostgreSQLはREINDEX, VACUUMなど保守系の実行も構築できます。
 
 Eclipse、Visual Studio、Tomcat、WebLogic、CVS、SVN、Git、Redmine、Selenium2.0 + WebDriver、memcached
 
-WebLogicはパラメタシートの設計から作成可能,  
+WebLogicはパラメタシートの設計から作成可能  
 
 [その他]  
 
@@ -58,7 +60,7 @@ Oracle Certified Java Programmer, Silver SE 7（2014年11月）
 
 # 参画プロジェクト
 
-まだないよ
+ジョイン、したい
 
 <!-- 
 Hugo is a static site engine written in Go.

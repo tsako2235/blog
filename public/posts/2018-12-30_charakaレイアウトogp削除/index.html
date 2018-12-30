@@ -6,7 +6,7 @@
 
 
 
-<title>2018 12 30 | ぺけぺけ</title>
+<title>2018 12 30_charakaレイアウトOGP削除 | ぺけぺけ</title>
 
 <link rel="stylesheet" href="https://tsako2235.github.io/blog/css/styles.css">
 
@@ -57,54 +57,67 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
   </div>
 <div class="container">
   <h2 class="subtitle is-6">December 30, 2018</h2>
-  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">2018 12 30</h1>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">2018 12 30_charakaレイアウトOGP削除</h1>
   <div class="content">
-    
+    <p>abountの画面にて、個人的に不要と思われるOGP（Open Graph Protcol）がある、<br />
+右上のツイッター、GitHubとTwitterだけで十分だろうと思い、削除に踏み切る</p>
 
-<h1 id="vscode-のターミナルuidの名前を変更する話">VSCode のターミナルuidの名前を変更する話</h1>
-
-<h2 id="現在のターミナルのuid">現在のターミナルのuid</h2>
-
-<p>うわ、私の本名…丸見え、しょうがないね、アカウント作るとき、<br />
-本名で作っちゃったものね、ちなみにこれはWin10のユーザ名を変更しても<br />
-反映されない。</p>
-
-<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
-$ id
-uid=197609(TAISHI-SAKO) gid=197121 groups=197121
+<pre><code>tsako2235@DESKTOP-LV0F0HG MINGW64 /c/project/blog/themes/charaka/layouts (blog_marktime)
+$ ls -ltr;pwd
+total 3
+-rw-r--r-- 1 tsako2235 197121  566 Dec 22 15:55 404.html
+drwxr-xr-x 1 tsako2235 197121    0 Dec 22 15:55 _default
+-rw-r--r-- 1 tsako2235 197121 1305 Dec 22 15:55 index.html
+drwxr-xr-x 1 tsako2235 197121    0 Dec 22 15:55 partials
+drwxr-xr-x 1 tsako2235 197121    0 Dec 22 15:55 section
+/c/project/blog/themes/charaka/layouts
 </code></pre>
 
-<h2 id="とりあえずusermod">とりあえずusermod</h2>
+<p>まずはレイアウトの確認、部品はpartialsにある筈なので、中身をのぞいてみる</p>
 
-<p>あ、ない…＾＾</p>
-
-<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
-$ usermod
-bash: usermod: command not found
+<pre><code>tsako2235@DESKTOP-LV0F0HG MINGW64 /c/project/blog/themes/charaka/layouts/partials (blog_marktime)
+$ find . | xargs grep twitter
+grep: .: Is a directory
+./jsshare.html:            shares: [&quot;email&quot;, &quot;twitter&quot;, &quot;facebook&quot;, &quot;googleplus&quot;, &quot;linkedin&quot;, &quot;pinterest&quot;, &quot;stumbleupon&quot;, &quot;whatsapp&quot;]
 </code></pre>
 
-<p>とりあえず、今更ながら利用しているbashを確認</p>
+<p>あった、このjsshare.htmlだな、ふむふむ
+.Site.Params.shareがenabledのときに設置されるのか…</p>
 
-<pre><code>Terminal › Integrated › Shell: Windows
-Windows でターミナルが使用するシェルのパス。シェルの構成について詳細を表示。
-
-C:\Program Files\Git\bin\bash.exe
+<pre><code>tsako2235@DESKTOP-LV0F0HG MINGW64 /c/project/blog/themes/charaka/layouts/partials (blog_marktime)
+$ cat jsshare.html
+&lt;div class=&quot;container has-text-centered&quot;&gt;
+    {{ if .Site.Params.share.enabled }}
+    &lt;aside&gt;&lt;div id=&quot;share&quot;&gt;&lt;/div&gt;&lt;/aside&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        $(&quot;#share&quot;).jsSocials({
+            showLabel: false,
+            showCount: false,
+            shares: [&quot;email&quot;, &quot;twitter&quot;, &quot;facebook&quot;, &quot;googleplus&quot;, &quot;linkedin&quot;, &quot;pinterest&quot;, &quot;stumbleupon&quot;, &quot;whatsapp&quot;]
+        });
+    &lt;/script&gt;
+    {{ end }}
+&lt;/div&gt;
 </code></pre>
 
-<p>GitBash&hellip;利用できるコマンド見てみると、確かにない
-う、ううん、とりあえず追加でnetplwizで名前を変更してみたけど</p>
+<p>多分、configに、あったと…あった</p>
 
-<p>おろ、再起動したら、VSCode上のターミナルは変わってくれた<br />
-よしよし</p>
+<pre><code>tsako2235@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ cat ./config.toml | grep share -2
+style = &quot;zenburn&quot;
 
-<pre><code>C:\Users\TAISHI-SAKO&gt;set user
-USERDOMAIN=DESKTOP-LV0F0HG
-USERDOMAIN_ROAMINGPROFILE=DESKTOP-LV0F0HG
-USERNAME=tsako2235
-USERPROFILE=C:\Users\TAISHI-SAKO
+[params.share]
+enabled = &quot;true&quot;
+</code></pre>
 
-tsako2235@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
-$
+<p>よし、変更</p>
+
+<pre><code>tsako2235@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ cat ./config.toml | grep share -2
+style = &quot;zenburn&quot;
+
+[params.share]
+enabled = &quot;false&quot;
 </code></pre>
 
   </div>
