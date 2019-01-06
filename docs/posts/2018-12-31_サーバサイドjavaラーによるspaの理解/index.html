@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>2018 12 31_サーバサイドJAVAラーJavaScriptフレームワークの理解 | ぺけぺけ</title>
+
+<link rel="stylesheet" href="https://tsako2235.github.io/blog/css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://tsako2235.github.io/blog/js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://tsako2235.github.io/blog"><h1 class="title is-3">ぺけぺけ</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://tsako2235.github.io/blog/about">
+                  <span class="icon">
+                    <i class="fas fa-info"></i>
+                  </span>
+                </a>
+              
+                <a href="https://github.com/tsako2235/">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/c_takosa">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">December 31, 2018</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">2018 12 31_サーバサイドJAVAラーJavaScriptフレームワークの理解</h1>
+  <div class="content">
+    
+
+<h1 id="目的-今時なjavascriptを理解して使えるようになりたい">目的：今時なJavaScriptを理解して使えるようになりたい</h1>
+
+<p>とりあえずはやりに乗ろうと Vue.jsなどの書籍を買ってみる。</p>
+
+<p>あ、これあかん、まず単語の擦り合わせからや、<br />
+至るところにSPAという単語があるが、これ何だろ？<br />
+知っているかもしれないが、意識せず使ってきた何かの技術名称か？<br />
+そういうのがよくある、いけない</p>
+
+<p>ちなみに私は、SPAを聞くとどちらかというと高級ビジネス誌SPA!を思い浮かべる程度</p>
+
+<p>これはいけない</p>
+
+<h1 id="知識の整理">知識の整理</h1>
+
+<p>ちょっと古めのJavaにおけるサーバサイドエンジニアが一般的に<br />
+思い浮かべるWebアプリケーションの構成とは、<br />
+どういったものだろう…自分が思い浮かべるのはいわゆる以下のような図になる</p>
+
+<p><img src="image/2018-12-31.png" alt="AP構成図" title="AP構成図" /></p>
+
+<p>※ ちなみにこちらはPlantUMLで作った頑張った</p>
+
+<p>何かしらのAPサーバ上のミドルウェアを立ち上げて<br />
+立ち上げたミドルウェアのLisnerでリクエストをハンドルし、<br />
+Webアプリケーションのサーブレット等で受け取り、
+DIやらでマッピング取得された情報をもとにリクエストを<br />
+チェックしたり業務ロジックに流し、<br />
+業務ロジックを実施して、JSPやらレスポンスを<br />
+返却してやるというような仕組みと思う</p>
+
+<h1 id="今時の構成とは">今時の構成とは</h1>
+
+<p>SPAは単一のページでコンテンツの切り替えを行うWeb アプリケーションのアーキテクチャなので
+上記構成で実装するとなると&hellip;</p>
+
+<p>つくりとしては<br />
+別口のサーブレットを立ち上げて、JavaScript経由でXMLリクエストを送信して<br />
+サーブレットで受け取って、業務ロジックを実施して、レスポンスを返却する。</p>
+
+<p>うん…サーバーサイド側の図は要らなかったかもね<br />
+SPA単体の理解であるならなおさら、ね</p>
+
+<p>気を取り直して、構成を改めて考える
+まずフロントエンド側、つまり画面はHTML5+XHTMLとかJSPと+JQueryか思いつく、でも今どきのSPAをJavaScriptでとなると、いわゆるVue.jsやReactなどを利用することが想定できる</p>
+
+<p>で、バックエンド側、言語統一したい、となると
+サーバサイド側はNode.jsになるのかな</p>
+
+<p>Node.jsといえば、こいつを使えばミドルウェアとか頼らず
+Web/APサーバが作れるんだぜぇというキワモノに見える…
+いっそのことフルスタックなJavaScriptMVC等の導入を<br />
+考えた方がいいのか？<br />
+全然わからん、使ったことないから判断できん<br />
+いや、ここはとりあえずnode.jsとしよう</p>
+
+<p>で、Viewは…HTML5+Reactとか…？
+DBは…MongoDB&hellip;MySQL互換を謡ってるMariaDBじゃだめ何ですかね？</p>
+
+<p>構成はたぶん、こんな感じ？</p>
+
+<p><img src="image/2018-12-31_2.png" alt="AP構成図2" title="AP構成図2" /></p>
+
+<p>WebサーバのNode.jsとAPサーバのNode.jsは<br />
+あいまにロードバランサをかまして<br />
+スケールアウトしないならわけないもんなのかも</p>
+
+<p>MVCの考えが通用するのかわからないため、<br />
+コントロール部は不明<br />
+Node.jsのサーバサイドの動きがよくわからないので、<br />
+Modelも不明、DBはとりあえずMongoDBに<br />
+よし、とりあえずこれでCURDできるアプリを作って
+Herokuにデプロイして動かして…みよう、頑張るぞい</p>
+
+<p><img src="image/2018-12-31_3.png" alt="pico" title="pico" /></p>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+    <aside><div id="share"></div></aside>
+    <script type="text/javascript">
+        $("#share").jsSocials({
+            showLabel: false,
+            showCount: false,
+            shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
+        });
+    </script>
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/tsako2235">tsako2235</a> 2018</p>
+  </div>
+</section>
+
+
