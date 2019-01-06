@@ -7,10 +7,39 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/tsako2235&#34;&gt;tsako2235&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Thu, 27 Dec 2018 17:21:01 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 30 Dec 2018 16:13:43 +0900</lastBuildDate>
     
 	<atom:link href="https://tsako2235.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2018 12 30_charakaレイアウトOGP削除</title>
+      <link>https://tsako2235.github.io/blog/posts/2018-12-30_charaka%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88ogp%E5%89%8A%E9%99%A4/</link>
+      <pubDate>Sun, 30 Dec 2018 16:13:43 +0900</pubDate>
+      
+      <guid>https://tsako2235.github.io/blog/posts/2018-12-30_charaka%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88ogp%E5%89%8A%E9%99%A4/</guid>
+      <description>abountの画面にて、個人的に不要と思われるOGP（Open Graph Protcol）がある、
+右上のツイッター、GitHubとTwitterだけで十分だろうと思い、削除に踏み切る
+tsako2235@DESKTOP-LV0F0HG MINGW64 /c/project/blog/themes/charaka/layouts (blog_marktime) $ ls -ltr;pwd total 3 -rw-r--r-- 1 tsako2235 197121 566 Dec 22 15:55 404.html drwxr-xr-x 1 tsako2235 197121 0 Dec 22 15:55 _default -rw-r--r-- 1 tsako2235 197121 1305 Dec 22 15:55 index.html drwxr-xr-x 1 tsako2235 197121 0 Dec 22 15:55 partials drwxr-xr-x 1 tsako2235 197121 0 Dec 22 15:55 section /c/project/blog/themes/charaka/layouts  まずはレイアウトの確認、部品はpartialsにある筈なので、中身をのぞいてみる
+tsako2235@DESKTOP-LV0F0HG MINGW64 /c/project/blog/themes/charaka/layouts/partials (blog_marktime) $ find . | xargs grep twitter grep: .</description>
+    </item>
+    
+    <item>
+      <title>2018 12 30</title>
+      <link>https://tsako2235.github.io/blog/posts/2018-12-30/</link>
+      <pubDate>Sun, 30 Dec 2018 15:26:18 +0900</pubDate>
+      
+      <guid>https://tsako2235.github.io/blog/posts/2018-12-30/</guid>
+      <description> VSCode のターミナルuidの名前を変更する話 現在のターミナルのuid うわ、私の本名…丸見え、しょうがないね、アカウント作るとき、
+本名で作っちゃったものね、ちなみにこれはWin10のユーザ名を変更しても
+反映されない。
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime) $ id uid=197609(TAISHI-SAKO) gid=197121 groups=197121  とりあえずusermod あ、ない…＾＾
+TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime) $ usermod bash: usermod: command not found  とりあえず、今更ながら利用しているbashを確認
+Terminal › Integrated › Shell: Windows Windows でターミナルが使用するシェルのパス。シェルの構成について詳細を表示。 C:\Program Files\Git\bin\bash.exe  GitBash&amp;hellip;利用できるコマンド見てみると、確かにない う、ううん、とりあえず追加でnetplwizで名前を変更してみたけど
+おろ、再起動したら、VSCode上のターミナルは変わってくれた
+よしよし
+C:\Users\TAISHI-SAKO&amp;gt;set user USERDOMAIN=DESKTOP-LV0F0HG USERDOMAIN_ROAMINGPROFILE=DESKTOP-LV0F0HG USERNAME=tsako2235 USERPROFILE=C:\Users\TAISHI-SAKO tsako2235@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime) $  </description>
+    </item>
     
     <item>
       <title>2018 12 27</title>
