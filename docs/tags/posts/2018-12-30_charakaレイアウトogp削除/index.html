@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>2018 12 30_charakaレイアウトOGP削除 | ぺけぺけ</title>
+
+<link rel="stylesheet" href="https://tsako2235.github.io/blog/css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://tsako2235.github.io/blog/js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://tsako2235.github.io/blog"><h1 class="title is-3">ぺけぺけ</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://tsako2235.github.io/blog/about">
+                  <span class="icon">
+                    <i class="fas fa-info"></i>
+                  </span>
+                </a>
+              
+                <a href="https://github.com/tsako2235/">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/c_takosa">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">December 30, 2018</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">2018 12 30_charakaレイアウトOGP削除</h1>
+  <div class="content">
+    <p>abountの画面にて、個人的に不要と思われるOGP（Open Graph Protcol）がある、<br />
+右上のツイッター、GitHubとTwitterだけで十分だろうと思い、削除に踏み切る</p>
+
+<pre><code>tsako2235@DESKTOP-LV0F0HG MINGW64 /c/project/blog/themes/charaka/layouts (blog_marktime)
+$ ls -ltr;pwd
+total 3
+-rw-r--r-- 1 tsako2235 197121  566 Dec 22 15:55 404.html
+drwxr-xr-x 1 tsako2235 197121    0 Dec 22 15:55 _default
+-rw-r--r-- 1 tsako2235 197121 1305 Dec 22 15:55 index.html
+drwxr-xr-x 1 tsako2235 197121    0 Dec 22 15:55 partials
+drwxr-xr-x 1 tsako2235 197121    0 Dec 22 15:55 section
+/c/project/blog/themes/charaka/layouts
+</code></pre>
+
+<p>まずはレイアウトの確認、部品はpartialsにある筈なので、中身をのぞいてみる</p>
+
+<pre><code>tsako2235@DESKTOP-LV0F0HG MINGW64 /c/project/blog/themes/charaka/layouts/partials (blog_marktime)
+$ find . | xargs grep twitter
+grep: .: Is a directory
+./jsshare.html:            shares: [&quot;email&quot;, &quot;twitter&quot;, &quot;facebook&quot;, &quot;googleplus&quot;, &quot;linkedin&quot;, &quot;pinterest&quot;, &quot;stumbleupon&quot;, &quot;whatsapp&quot;]
+</code></pre>
+
+<p>あった、このjsshare.htmlだな、ふむふむ
+.Site.Params.shareがenabledのときに設置されるのか…</p>
+
+<pre><code>tsako2235@DESKTOP-LV0F0HG MINGW64 /c/project/blog/themes/charaka/layouts/partials (blog_marktime)
+$ cat jsshare.html
+&lt;div class=&quot;container has-text-centered&quot;&gt;
+    {{ if .Site.Params.share.enabled }}
+    &lt;aside&gt;&lt;div id=&quot;share&quot;&gt;&lt;/div&gt;&lt;/aside&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        $(&quot;#share&quot;).jsSocials({
+            showLabel: false,
+            showCount: false,
+            shares: [&quot;email&quot;, &quot;twitter&quot;, &quot;facebook&quot;, &quot;googleplus&quot;, &quot;linkedin&quot;, &quot;pinterest&quot;, &quot;stumbleupon&quot;, &quot;whatsapp&quot;]
+        });
+    &lt;/script&gt;
+    {{ end }}
+&lt;/div&gt;
+</code></pre>
+
+<p>多分、configに、あったと…あった</p>
+
+<pre><code>tsako2235@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ cat ./config.toml | grep share -2
+style = &quot;zenburn&quot;
+
+[params.share]
+enabled = &quot;true&quot;
+</code></pre>
+
+<p>よし、変更</p>
+
+<pre><code>tsako2235@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ cat ./config.toml | grep share -2
+style = &quot;zenburn&quot;
+
+[params.share]
+enabled = &quot;false&quot;
+</code></pre>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+    <aside><div id="share"></div></aside>
+    <script type="text/javascript">
+        $("#share").jsSocials({
+            showLabel: false,
+            showCount: false,
+            shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
+        });
+    </script>
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/tsako2235">tsako2235</a> 2018</p>
+  </div>
+</section>
+
+

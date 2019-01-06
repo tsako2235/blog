@@ -7,10 +7,57 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/tsako2235&#34;&gt;tsako2235&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Sun, 30 Dec 2018 16:13:43 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 31 Dec 2018 17:10:39 +0900</lastBuildDate>
     
 	<atom:link href="https://tsako2235.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2018 12 31_サーバサイドJAVAラーJavaScriptフレームワークの理解</title>
+      <link>https://tsako2235.github.io/blog/posts/2018-12-31_%E3%82%B5%E3%83%BC%E3%83%90%E3%82%B5%E3%82%A4%E3%83%89java%E3%83%A9%E3%83%BC%E3%81%AB%E3%82%88%E3%82%8Bspa%E3%81%AE%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Mon, 31 Dec 2018 17:10:39 +0900</pubDate>
+      
+      <guid>https://tsako2235.github.io/blog/posts/2018-12-31_%E3%82%B5%E3%83%BC%E3%83%90%E3%82%B5%E3%82%A4%E3%83%89java%E3%83%A9%E3%83%BC%E3%81%AB%E3%82%88%E3%82%8Bspa%E3%81%AE%E7%90%86%E8%A7%A3/</guid>
+      <description>目的：今時なJavaScriptを理解して使えるようになりたい とりあえずはやりに乗ろうと Vue.jsなどの書籍を買ってみる。
+あ、これあかん、まず単語の擦り合わせからや、
+至るところにSPAという単語があるが、これ何だろ？
+知っているかもしれないが、意識せず使ってきた何かの技術名称か？
+そういうのがよくある、いけない
+ちなみに私は、SPAを聞くとどちらかというと高級ビジネス誌SPA!を思い浮かべる程度
+これはいけない
+知識の整理 ちょっと古めのJavaにおけるサーバサイドエンジニアが一般的に
+思い浮かべるWebアプリケーションの構成とは、
+どういったものだろう…自分が思い浮かべるのはいわゆる以下のような図になる
+※ ちなみにこちらはPlantUMLで作った頑張った
+何かしらのAPサーバ上のミドルウェアを立ち上げて
+立ち上げたミドルウェアのLisnerでリクエストをハンドルし、
+Webアプリケーションのサーブレット等で受け取り、 DIやらでマッピング取得された情報をもとにリクエストを
+チェックしたり業務ロジックに流し、
+業務ロジックを実施して、JSPやらレスポンスを
+返却してやるというような仕組みと思う
+今時の構成とは SPAは単一のページでコンテンツの切り替えを行うWeb アプリケーションのアーキテクチャなので 上記構成で実装するとなると&amp;hellip;
+つくりとしては
+別口のサーブレットを立ち上げて、JavaScript経由でXMLリクエストを送信して
+サーブレットで受け取って、業務ロジックを実施して、レスポンスを返却する。
+うん…サーバーサイド側の図は要らなかったかもね
+SPA単体の理解であるならなおさら、ね
+気を取り直して、構成を改めて考える まずフロントエンド側、つまり画面はHTML5+XHTMLとかJSPと+JQueryか思いつく、でも今どきのSPAをJavaScriptでとなると、いわゆるVue.jsやReactなどを利用することが想定できる
+で、バックエンド側、言語統一したい、となると サーバサイド側はNode.jsになるのかな
+Node.jsといえば、こいつを使えばミドルウェアとか頼らず Web/APサーバが作れるんだぜぇというキワモノに見える… いっそのことフルスタックなJavaScriptMVC等の導入を
+考えた方がいいのか？
+全然わからん、使ったことないから判断できん
+いや、ここはとりあえずnode.jsとしよう
+で、Viewは…HTML5+Reactとか…？ DBは…MongoDB&amp;hellip;MySQL互換を謡ってるMariaDBじゃだめ何ですかね？
+構成はたぶん、こんな感じ？
+WebサーバのNode.jsとAPサーバのNode.jsは
+あいまにロードバランサをかまして
+スケールアウトしないならわけないもんなのかも
+MVCの考えが通用するのかわからないため、
+コントロール部は不明
+Node.jsのサーバサイドの動きがよくわからないので、
+Modelも不明、DBはとりあえずMongoDBに
+よし、とりあえずこれでCURDできるアプリを作って Herokuにデプロイして動かして…みよう、頑張るぞい</description>
+    </item>
     
     <item>
       <title>2018 12 30_charakaレイアウトOGP削除</title>
@@ -47,8 +94,8 @@ C:\Users\TAISHI-SAKO&amp;gt;set user USERDOMAIN=DESKTOP-LV0F0HG USERDOMAIN_ROAMI
       <pubDate>Thu, 27 Dec 2018 17:21:01 +0900</pubDate>
       
       <guid>https://tsako2235.github.io/blog/posts/2018-12-27/</guid>
-      <description>Windows環境で開発環境を整えて、VSCode + Hugo + GitHubでポートフォリオを作成する話 1. VSCodのインストール 他サイトをご参考ください。 なお、当サイトでは基本ターミナルはbashとなります。
-2. gitインストール 他サイトをご参考ｋ（ｒｙ
+      <description>Windows環境で開発環境を整えて、VSCode + Hugo + GitHubでポートフォリオを作成する話 1. VSCodのインストール 他サイトをご参考ください。 なお、当サイトでは基本ターミナルはbashとなります
+2. gitインストール 他サイトをご参考ｋ（ｒｙ いや、これは書こう
 インストール ここを参考にインストール https://qiita.com/shinsumicco/items/a1c799640131ae33c792
 Ctrl+Shift+@でターミナルを開き、Gitのパスが通り、インストールされているか確認
 TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (master) $ git version git version 2.19.1.windows.1  ブランチ作成 https://guides.github.com/activities/hello-world/ とりまmasterへPullまで確認 portfolioのリポジトリと、master以外のブランチを作成しておく

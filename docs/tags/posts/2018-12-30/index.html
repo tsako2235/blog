@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>2018 12 30 | ぺけぺけ</title>
+
+<link rel="stylesheet" href="https://tsako2235.github.io/blog/css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://tsako2235.github.io/blog/js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://tsako2235.github.io/blog"><h1 class="title is-3">ぺけぺけ</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://tsako2235.github.io/blog/about">
+                  <span class="icon">
+                    <i class="fas fa-info"></i>
+                  </span>
+                </a>
+              
+                <a href="https://github.com/tsako2235/">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/c_takosa">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">December 30, 2018</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">2018 12 30</h1>
+  <div class="content">
+    
+
+<h1 id="vscode-のターミナルuidの名前を変更する話">VSCode のターミナルuidの名前を変更する話</h1>
+
+<h2 id="現在のターミナルのuid">現在のターミナルのuid</h2>
+
+<p>うわ、私の本名…丸見え、しょうがないね、アカウント作るとき、<br />
+本名で作っちゃったものね、ちなみにこれはWin10のユーザ名を変更しても<br />
+反映されない。</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ id
+uid=197609(TAISHI-SAKO) gid=197121 groups=197121
+</code></pre>
+
+<h2 id="とりあえずusermod">とりあえずusermod</h2>
+
+<p>あ、ない…＾＾</p>
+
+<pre><code>TAISHI-SAKO@DESKTOP-LV0F0HG MINGW64 /c/project/blog (blog_marktime)
+$ usermod
+bash: usermod: command not found
+</code></pre>
+
+<p>とりあえず、今更ながら利用しているbashを確認</p>
+
+<pre><code>Terminal › Integrated › Shell: Windows
+Windows でターミナルが使用するシェルのパス。シェルの構成について詳細を表示。
+
+C:\Program Files\Git\bin\bash.exe
+</code></pre>
+
+<p>GitBash&hellip;利用できるコマンド見てみると、確かにない
+う、ううん、とりあえず追加でnetplwizで名前を変更してみたけど</p>
+
+<p>おろ、再起動したら、VSCode上のターミナルは変わってくれた<br />
+よしよし</p>
+
+<pre><code>C:\Users\TAISHI-SAKO&gt;set user
+USERDOMAIN=DESKTOP-LV0F0HG
+USERDOMAIN_ROAMINGPROFILE=DESKTOP-LV0F0HG
+USERNAME=tsako2235
+USERPROFILE=C:\Users\TAISHI-SAKO
+
+tsako2235@DESKTOP-LV0F0HG MINGW64 /c/project/portfolio (marktime)
+$
+</code></pre>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+    <aside><div id="share"></div></aside>
+    <script type="text/javascript">
+        $("#share").jsSocials({
+            showLabel: false,
+            showCount: false,
+            shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
+        });
+    </script>
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/tsako2235">tsako2235</a> 2018</p>
+  </div>
+</section>
+
+
