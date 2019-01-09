@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>20190109_Hyper V&#43;Linux[Ubunts]開発環境の構築 | ぺけぺけ</title>
+
+<link rel="stylesheet" href="https://tsako2235.github.io/blog/css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://tsako2235.github.io/blog/js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://tsako2235.github.io/blog"><h1 class="title is-3">ぺけぺけ</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://tsako2235.github.io/blog/about">
+                  <span class="icon">
+                    <i class="fas fa-info"></i>
+                  </span>
+                </a>
+              
+                <a href="https://github.com/tsako2235/">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/c_takosa">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">January 9, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">20190109_Hyper V&#43;Linux[Ubunts]開発環境の構築</h1>
+  <div class="content">
+    
+
+<h1 id="hyper-v-linux-ubunts-開発環境の構築">Hyper V+Linux[Ubunts]開発環境の構築</h1>
+
+<h2 id="目的">目的</h2>
+
+<p>現在（2019-01-09）開発環境について以下構成のローカル環境で行っているが、<br />
+正直なところ雑多なツールとコードが繁茂しつつある</p>
+
+<ul>
+<li>Windows 10 Pro + VSCode + GitHub</li>
+</ul>
+
+<p>跡から取捨選択する際、まっさらな環境と不要になった際、即捨てられる環境が欲しいとこ<br />
+ということで、せっかくWin 10 Pro なのでHyperV使えるじゃん、ならHyperV+Ubuntsでいいよね<br />
+ということで早速導入してみる</p>
+
+<p>実はParallels入れてあるMacはあるんだけど、いかんせんMacBookProでな、重いんだ…</p>
+
+<h2 id="事前準備">事前準備</h2>
+
+<h3 id="ubuntsイメージを入手">Ubuntsイメージを入手</h3>
+
+<p>適当なUbuntsイメージを…LTS、うーんバージョンは固定にしたいような気もするが<br />
+まぁ、Linuxはまぁいいでしょう、そこまで気にしなくてということでUbuntu 18.04.1 LTS版をダウンロード</p>
+
+<h3 id="ダウンロードurl">ダウンロードURL</h3>
+
+<p><a href="https://www.ubuntu.com/download/desktop">https://www.ubuntu.com/download/desktop</a></p>
+
+<h3 id="hyper-vの準備">Hyper-Vの準備</h3>
+
+<p>一応systeminfoで確認</p>
+
+<pre><code>PS C:\WINDOWS\system32&gt; systeminfo
+.
+.
+Hyper-V の要件:         VM モニター モード拡張機能: はい
+                        ファームウェアで仮想化が有効になっています: はい
+                        第 2 レベルのアドレス変換: はい
+                        データ実行防止が使用できます: はい
+</code></pre>
+
+<p>OK、次アプリケーションを適宜有効化<br />
+「dism /online /Enable-Feature /FeatureName:XX」（XXは機能名）</p>
+
+<pre><code>PS C:\WINDOWS\system32&gt; dism /online /Get-Features
+
+展開イメージのサービスと管理ツール
+バージョン: 10.0.17134.1
+
+イメージのバージョン: 10.0.17134.472
+
+パッケージの機能の一覧 : Microsoft-Windows-Foundation-Package~31bf3856ad364e35~amd64~~10.0.17134.1
+
+.
+.
+
+機能名 : Microsoft-Hyper-V-All
+状態 : 有効
+
+機能名 : Microsoft-Hyper-V
+状態 : 有効
+
+機能名 : Microsoft-Hyper-V-Tools-All
+状態 : 有効
+
+機能名 : Microsoft-Hyper-V-Management-PowerShell
+状態 : 有効
+
+機能名 : Microsoft-Hyper-V-Hypervisor
+状態 : 有効
+
+機能名 : Microsoft-Hyper-V-Services
+状態 : 有効
+
+機能名 : Microsoft-Hyper-V-Management-Clients
+状態 : 有効
+
+.
+.
+
+操作は正常に完了しました。
+PS C:\WINDOWS\system32&gt;
+</code></pre>
+
+<h2 id="hyper-vの構築">Hyper-Vの構築</h2>
+
+<h3 id="仮想マシンの新規作成">仮想マシンの新規作成</h3>
+
+<p>管理ツールからHyper-Vマネージャを起動して、<br />
+左パネルのアイコン右クリック &gt; 新規</p>
+
+<p>&hellip;IISチックなGUIだこと</p>
+
+<p>メモリの割当まで進んだ、うーん、Ubuntuの推奨スペックは以下</p>
+
+<blockquote>
+<p>2 GHz以上のデュアルコアプロセッサ<br />
+2 GBのシステムメモリ<br />
+25 GBのハードドライブ空き容量<br />
+インストーラメディア用のDVDドライブまたはUSBポート<br />
+インターネットアクセスは便利です</p>
+</blockquote>
+
+<p>で、とりあえず今欲しい環境は以下2点</p>
+
+<ul>
+<li>VSCode を動作させるGUI環境</li>
+<li>Node.js及びReactの実行環境</li>
+</ul>
+
+<p>4Gありゃええじゃろ…うん
+ネットワークは規定のスイッチで</p>
+
+<p>ハード32Gでいいでしょ
+インストールオプションで先ほど準備したUbuntuのイメージを<br />
+セットして、要約を確認して、OK</p>
+
+<h2 id="ubuntuセットアップ">Ubuntuセットアップ</h2>
+
+<h3 id="の前に">の前に</h3>
+
+<p>Ubuntuインストール後、起動しないそうなので<br />
+セキュアブートを無効に、またローカルからファイルコピペしたいので<br />
+ゲストサービスのチェックを有効に</p>
+
+<h3 id="インストール">インストール</h3>
+
+<p>GUIに従って適当に実施でいい</p>
+
+<h3 id="起動後の初期設定">起動後の初期設定</h3>
+
+<p>うーん、サーフェスちゃんだと重い、CUIモードをデフォルトにしておこう
+折角だけどVSCodeでの開発はあきらめてvimでええかもしれん</p>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+    <aside><div id="share"></div></aside>
+    <script type="text/javascript">
+        $("#share").jsSocials({
+            showLabel: false,
+            showCount: false,
+            shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
+        });
+    </script>
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/tsako2235">tsako2235</a> 2018</p>
+  </div>
+</section>
+
+
